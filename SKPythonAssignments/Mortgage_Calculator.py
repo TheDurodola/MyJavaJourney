@@ -27,7 +27,7 @@ print("WELCOME TO THE MORTGATE CALCULATOR\n")
 
 principal = float(input("Enter the PRINCIPAL AMOUNT: $"))
 annual_rate = float(input("Enter the ANNUAL RATE: "))
-duration_year = float(input("Enter the duration in YEARS: "))
+duration_year = int(input("Enter the duration in YEARS: "))
 
 monthly_rate = (annual_rate/100)/12
 duration_month = duration_year*12
