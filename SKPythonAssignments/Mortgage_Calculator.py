@@ -36,8 +36,8 @@ duration_month = duration_year*12
 numerator = ((monthly_rate+1)**duration_month)*monthly_rate
 denominator = ((monthly_rate+1)**duration_month)-1
 
-equation = numerator/denominator
+fraction = numerator/denominator
 
-result = principal * equation
+mortgage = principal * fraction
 
-print("\nYour monthly payment is $%.2f" % result)
+print("\nYour monthly payment is $%.2f" % mortgage)
