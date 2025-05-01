@@ -15,11 +15,11 @@ ADD 1 to the monthlyRate and raise the result by the durationMonths(Exponential)
 
 ADD 1 to the monthlyRate and raise the result by the durationMonths(Exponential). MINUS 1 from the result and store the result as denominator.
 
-DIVIDE the numerator by the denominator and store the result as equation.
+DIVIDE the numerator by the denominator and store the result as fraction.
 
-MULTIPY equation by the principal STORE as result
+MULTIPY fraction by the principal STORE as mortgage
 
-DISPLAY the result
+DISPLAY mortgage
 """
 
 
