@@ -6,14 +6,14 @@ COLLECT the annual interest rate and STORE it as annual_rate
 COLLECT the duration in years and STORE as duration_year
 
 
-DIVIDE the annual_rate by 12 and 100(or simply 1200)and STORE the result as monthlyRate
+DIVIDE the annual_rate by 12 and 100(or simply 1200)and STORE the result as monthly_rate
 
 
-MULTIPLY duration_year by 12, Store the result as durationMonths
+MULTIPLY duration_year by 12, Store the result as duration_month
 
-ADD 1 to the monthlyRate and raise the result by the durationMonths(Exponential). MULTIPLY the result by monthRate and store the result as numerator.
+ADD 1 to the monthly_rate and raise the result by the duration_month(Exponential). MULTIPLY the result by monthly_rate and store the result as numerator.
 
-ADD 1 to the monthlyRate and raise the result by the durationMonths(Exponential). MINUS 1 from the result and store the result as denominator.
+ADD 1 to the monthly_Rate and raise the result by the duration_months(Exponential). MINUS 1 from the result and store the result as denominator.
 
 DIVIDE the numerator by the denominator and store the result as fraction.
 
