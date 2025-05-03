@@ -83,7 +83,7 @@ static boolean isPalindrome(int number2){
 int numfinal = number2;
 int rev = 0;
 
-if(number2>99 && number2<=999){
+if(number2>9999 && number2<=99999){
 
 while(number2>0){
 	rev = rev *10 + number2 % 10;
@@ -96,7 +96,11 @@ return numfinal==rev;
 }
 
 
-
+static long squareOf(int number2){
+double square = Math.pow(number2,number2);
+long square1 = square;
+return square1;
+}
 
 
 
