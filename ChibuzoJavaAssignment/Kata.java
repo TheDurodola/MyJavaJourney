@@ -96,12 +96,6 @@ return numfinal==rev;
 }
 
 
-static long squareOf(int number2){
-double square = Math.pow(number2,number2);
-long square1 = square;
-return square1;
-}
-
 
 
 
