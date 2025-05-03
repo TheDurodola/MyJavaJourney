@@ -103,7 +103,14 @@ factorial = factorial * counter;
 return factorial;
 }
 
+static long squareOf(int number1){
+int square = 1;
+for(int count =0;count<=2;count++){
+square = number1 * number1;}
 
+return square;
+
+}
 
 
 
