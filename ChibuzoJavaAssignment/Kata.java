@@ -95,7 +95,13 @@ while(number2>0){
 return numfinal==rev;
 }
 
-
+static long factorialOf(int number2 ){
+int factorial =1;
+for(int counter = number2; counter >= 2; counter--){
+factorial = factorial * counter;
+}
+return factorial;
+}
 
 
 
