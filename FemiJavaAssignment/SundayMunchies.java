@@ -7,24 +7,24 @@ int fifthMultiple = number *5;
 return fifthMultiple;
 }
 
+
 //Question 2
 /*
 static void displayPrimeNumber(){
 
-int factorCount = 0;
 int primeCount =0;
-int number = 12;
+int number = 1;
 
-
+while(primeCount<=49){
+int factorCount = 0;
 for(int count=1;count<=number;count++){
-
 int check = number%count;
 if(check==0){factorCount= factorCount +1;}
 }
-
-if(factorCount<=2){primeCount = number;
+if(factorCount<=2){System.out.println(number);
+primeCount= primeCount+1;}
+number++;
 }
-System.out.println(primeCount);
 }
 */
 
