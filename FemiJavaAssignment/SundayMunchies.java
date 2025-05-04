@@ -63,13 +63,35 @@ return sumOfNumber;
 
 }
 
+/*
+static void displayDogAge(String name, int humanYears){
+int dogYears = humanYears * 7;
+
+System.out.printf("%s %d", name, dogYears);
+}
+*/
+
+
+static void displayPrimeNumber(){
+
+int factorCount = 0;
+int primeCount =0;
+int number = 12;
+
+
+for(int count=1;count<=number;count++){
+
+int check = number%count;
+if(check==0){factorCount= factorCount +1;}
+}
+
+if(factorCount<=2){primeCount = number;
+}
+System.out.println(primeCount);
 
 
 
-
-
-
-
+}
 
 
 
