@@ -81,12 +81,8 @@ int divide = number/count;
 sum = sum +divide;
 number = number%count;
 }
-
 sumOfNumber = sum;			}
-
-
 else{System.out.print("This is not a four digits number! ");}
-
 return sumOfNumber;
 }
 
