@@ -1,25 +1,36 @@
 public class SundayMunchies{
 
 
-
+//Question 1
 static int findMultiple(int number){
 int fifthMultiple = number *5;
 return fifthMultiple;
 }
 
+//Question 2
+/*
+static void displayPrimeNumber(){
 
-static boolean isLeapYear(int year){
+int factorCount = 0;
+int primeCount =0;
+int number = 12;
 
-int checker1 = year%4;
-int checker2 = year%100;
-int checker3 = year%400;
 
-return checker1==0 && (checker2!=0 || checker3==0);
+for(int count=1;count<=number;count++){
+
+int check = number%count;
+if(check==0){factorCount= factorCount +1;}
 }
 
+if(factorCount<=2){primeCount = number;
+}
+System.out.println(primeCount);
+}
+*/
 
 
 
+//Question 3
 static String displayAge(int ageYears){
 
 int ageMonths = ageYears*12;
@@ -40,7 +51,19 @@ return ageALL;
 }
 
 
+//Question 4
+/*
+static void displayDogAge(String name, int humanYears){
+int dogYears = humanYears * 7;
 
+System.out.printf("%s %d", name, dogYears);
+}
+*/
+
+
+
+
+//Question 6
 static int computeSumOfNumber(int number){
  
 int sumOfNumber =0;
@@ -60,37 +83,18 @@ sumOfNumber = sum;			}
 else{System.out.print("This is not a four digits number! ");}
 
 return sumOfNumber;
-
 }
 
-/*
-static void displayDogAge(String name, int humanYears){
-int dogYears = humanYears * 7;
-
-System.out.printf("%s %d", name, dogYears);
-}
-*/
 
 
-static void displayPrimeNumber(){
+//Question 7
+static boolean isLeapYear(int year){
 
-int factorCount = 0;
-int primeCount =0;
-int number = 12;
+int checker1 = year%4;
+int checker2 = year%100;
+int checker3 = year%400;
 
-
-for(int count=1;count<=number;count++){
-
-int check = number%count;
-if(check==0){factorCount= factorCount +1;}
-}
-
-if(factorCount<=2){primeCount = number;
-}
-System.out.println(primeCount);
-
-
-
+return checker1==0 && (checker2!=0 || checker3==0);
 }
 
 
