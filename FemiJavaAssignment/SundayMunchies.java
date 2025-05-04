@@ -19,24 +19,25 @@ return checker1==0 && (checker2!=0 || checker3==0);
 
 
 
-/*
+
 static String displayAge(int ageYears){
 
-ageMonths = ageYears*12;
-ageDays =  ageYears*365;
-ageMinutes = ageDays*60*24;
-ageSeconds = ageMinutes*60;
+int ageMonths = ageYears*12;
+int ageDays =  ageYears*365;
+int ageMinutes = ageDays*60*24;
+int ageSeconds = ageMinutes*60;
 
-ageYears = Integer.toString(ageYears);
-ageMonths = Integer.toString(ageMonths);
-ageDays = Integer.toString(ageDays);
-ageMinutes = Integer.toString(ageMinutes);
-ageSeconds = Integer.toString(ageSeconds);
+String years = Integer.toString(ageYears);
+String months = Integer.toString(ageMonths);
+String days = Integer.toString(ageDays);
+String minutes = Integer.toString(ageMinutes);
+String seconds = Integer.toString(ageSeconds);
 
-return ageSeconds;
+String ageALL = String.format("Years: %s%nMonths: %s%nDays: %s%nMinutes: %s%nSeconds: %s",years,months,days,minutes,seconds);
+
+return ageALL;
 
 }
-*/
 
 
 
@@ -51,7 +52,6 @@ for(int count=1000; count!=0; count/=10){
 int divide = number/count;
 sum = sum +divide;
 number = number%count;
-
 }
 
 sumOfNumber = sum;			}
