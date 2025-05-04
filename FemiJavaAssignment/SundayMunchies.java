@@ -80,7 +80,7 @@ for(int count=1000; count!=0; count/=10){
 int divide = number/count;
 sum = sum +divide;
 number = number%count;
-}
+} 
 sumOfNumber = sum;			}
 else{System.out.print("This is not a four digits number! ");}
 return sumOfNumber;
