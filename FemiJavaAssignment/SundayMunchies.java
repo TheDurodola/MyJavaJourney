@@ -9,7 +9,7 @@ return fifthMultiple;
 
 
 //Question 2
-/*
+
 static void displayPrimeNumber(){
 
 int primeCount =0;
@@ -26,7 +26,7 @@ primeCount= primeCount+1;}
 number++;
 }
 }
-*/
+
 
 
 
@@ -52,13 +52,18 @@ return ageALL;
 
 
 //Question 4
-/*
+
 static void displayDogAge(String name, int humanYears){
 int dogYears = humanYears * 7;
 
-System.out.printf("%s %d", name, dogYears);
+String newDogYears = Integer.toString(dogYears);
+String result = String.format("Dog name: %s%nDog Age: %s years",name,newDogYears);
+
 }
-*/
+
+
+
+//Question 5
 
 
 
