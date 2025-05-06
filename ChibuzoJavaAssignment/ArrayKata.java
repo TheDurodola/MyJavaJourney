@@ -7,15 +7,17 @@ int number[] = new int [arraySize];
 
 java.util.Scanner input = new java.util.Scanner(System.in);
 
-int largestNumber=0;
-for(int count=0;count<arraySize;count++){
-System.out.print("Enter next number: ");
+System.out.print("Enter number: ");
+number[0] = input.nextInt();
+int largestNumber= number[0];
+
+for(int count=1;count<arraySize;count++){
+System.out.print("Enter number: ");
 int figure = input.nextInt();
-number[count] = figure; 
+number[count]=figure;
 
-if(number[count]>number[0]){largestNumber=figure;}
+if(figure>largestNumber)largestNumber=number[count];
 }
-
 return largestNumber;
 }
 
@@ -28,18 +30,20 @@ int number[] = new int [arraySize];
 
 java.util.Scanner input = new java.util.Scanner(System.in);
 
-int smallestNumber = number[0];
-
-for(int count=0;count<arraySize;count++){
 System.out.print("Enter number: ");
+number[0] = input.nextInt();
+int smallestNumber= number[0];
+
+for(int count=1;count<arraySize;count++){
+System.out.print("Enter next number: ");
 int figure = input.nextInt();
-number[count] = figure; 
+number[count]=figure;
 
-if(number[count]<smallestNumber){smallestNumber=number[count];}
+if(figure<smallestNumber)smallestNumber=number[count];
 }
 
-return smallestNumber;
-}
+
+return smallestNumber;}
 
 
 
@@ -66,6 +70,8 @@ return total;
 }
 
 
+
+
 static int sumOfEvenNumbersIn(int arraySize){
 java.util.Scanner input = new java.util.Scanner(System.in);
 int number[] = new int [arraySize];
@@ -85,6 +91,9 @@ System.out.print("The total of all EVEN numbers is: ");
 return total;
 
 }
+
+
+
 
 static int sumOfOddNumbersIn(int arraySize){
 java.util.Scanner input = new java.util.Scanner(System.in);
@@ -106,6 +115,13 @@ return total;
 
 }
 
+
+
+
+
+
+
+
 static int noOfOddNumbersIn(int arraySize){
 java.util.Scanner input = new java.util.Scanner(System.in);
 int number[] = new int [arraySize];
@@ -125,6 +141,9 @@ System.out.print("The total of all ODD numbers is: ");
 return total;
 
 }
+
+
+
 
 
 
