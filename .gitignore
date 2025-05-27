@@ -3,3 +3,5 @@ ChibuzoJavaAssignment/Test.class
 *.class
 FemiJavaAssignment/Test.java
 ChibuzoJavaAssignment/Driver.java
+ChibuzoJavaAssignment/junit-jupiter-api-5.10.0.jar
+*.jar
