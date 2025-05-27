@@ -9,43 +9,29 @@ Scanner input = new Scanner(System.in);
 ArrayList<String[]> bankDatabase = new ArrayList<>();
 
 
-String accountNumber = input.next();
-String name = input.next();
-String phone = input.next();
-String balance = input.next();
+bankDatabase.add(createAccount("1234567890", "Abolaji", "08144194199"));
+bankDatabase.add(createAccount("9876543210", "Aboluwatife", "07041941941"));
 
+System.out.print(Arrays.toString(bankDatabase.get(1)));
+
+}
+
+
+static String[] createAccount(String accountNumber, String name, String phone){
+String balance = "0";
 String [] customerAccount = {accountNumber,name,phone, balance};
+return customerAccount;
+}
 
-bankDatabase.add(customerAccount);
+static String[] withdrawAmount(ArrayList<String[]> bankDatabase, String[] customerAccount){
 
-System.out.print(Arrays.toString(bankDatabase.get(0)));
-
-
-
-
-
-
-
-
+for(int index = 0; index < bankDatabase.size(); index++){
+	if (customerAccount == bankDatabase.get(index)[0]){
+	return bankDatabase(index);
+	}
+}
 
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}}
+}
