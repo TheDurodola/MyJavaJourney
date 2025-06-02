@@ -11,8 +11,8 @@ Scanner input = new Scanner(System.in);
 int loopCondition = 0;
 int score = 0; 
 while(loopCondition<10){
-	int number1 = random.nextInt(2,9);
-	int number2 = random.nextInt(2,10);
+	int number1 = random.nextInt(100);
+	int number2 = random.nextInt(100);
 
 	int minuend = 0;
 	int subtrahend = 0;
