@@ -39,9 +39,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[0]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Correct");
 		index = 3;
 		correctScore += 1;
@@ -70,9 +70,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[1]){
 	System.out.println("a) True b) False");
 
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Correct");
 		index = 3;
 		correctScore += 1;
@@ -101,9 +101,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[2]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Correct");
 		index = 3;
 		correctScore += 1;
@@ -131,9 +131,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[3]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Correct");
 		index = 3;
 		correctScore += 1;
@@ -162,9 +162,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[4]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Correct");
 		index = 3;
 		correctScore += 1;
@@ -195,9 +195,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[5]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Incorrect");;
 		index +=1;
 
@@ -226,9 +226,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[6]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Incorrect");;
 		index +=1;
 
@@ -257,9 +257,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[7]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Incorrect");;
 		index +=1;
 
@@ -288,9 +288,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[8]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Incorrect");;
 		index +=1;
 
@@ -320,9 +320,9 @@ if(arrayOfQuestions[userQuestion]==arrayOfQuestions[9]){
 
 	System.out.println("a) True b) False");
 	System.out.print("Choose your Answer: ");
-	String userAnswer = input.next();
+	String userAnswer = input.nextLine();
 
-	if(userAnswer==arrayOfAnswers[0]){
+	if(userAnswer.equals(arrayOfAnswers[0])){
 		System.out.println("Incorrect");;
 		index +=1;
 
