@@ -1,8 +1,8 @@
 package ProblemTracker;
 
 public class Problem {
-        String name;
-        private ProblemType type;
+        private final String name;
+        private final ProblemType type;
         private static boolean status;
 
         public Problem(String name, ProblemType type) {
