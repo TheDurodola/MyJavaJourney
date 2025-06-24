@@ -1,7 +1,7 @@
 package ProblemTracker;
 
 public class Problem {
-        private String name;
+        String name;
         private ProblemType type;
         private static boolean status;
 
@@ -11,8 +11,11 @@ public class Problem {
         status = false;
         }
 
-        static void isSolved(){
-                status = true;
+        public Object getName() {
+        return name;
         }
 
+        public void setStatus(boolean b) {
+        status = b;
+        }
 }
