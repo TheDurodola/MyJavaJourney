@@ -15,7 +15,13 @@ public class Problem {
         return name;
         }
 
-        public void setStatus(boolean b) {
-        status = b;
+        public Object getType() {
+                return type;
+        }
+        public boolean getStatus() {
+        return status;
+        }
+        public void setStatus() {
+        status = true;
         }
 }
