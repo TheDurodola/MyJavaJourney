@@ -11,11 +11,11 @@ public class Problem {
         status = false;
         }
 
-        public Object getName() {
+        public String getName() {
         return name;
         }
 
-        public Object getType() {
+        public ProblemType getType() {
                 return type;
         }
         public boolean getStatus() {
