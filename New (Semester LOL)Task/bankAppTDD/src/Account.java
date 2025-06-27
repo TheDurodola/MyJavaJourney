@@ -1,9 +1,14 @@
 public class Account {
     private int balance;
-    private String password;
+    private final String savedPassword;
 
-    public int getBalance() {
-        return balance;
+    Account(String savedPassword) {
+        this.savedPassword = savedPassword;
+    }
+    public int getBalance(String inputPassword) {
+        if (inputPassword.equals(savedPassword))return balance;
+
+        return 0;
     }
 
     public void deposit(int amount) {
