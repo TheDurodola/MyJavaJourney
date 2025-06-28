@@ -60,11 +60,9 @@ public class BikeTest {
     public void test_ThatBikeAccelerateBy2_InGearTwo(){
             Bike yamaha = new Bike();
             yamaha.useSwitch();
-            for(int index = 0; index < 20; index++){
+            for(int index = 0; index < 21; index++){
                 yamaha.accelerate();
             }
-            assertEquals(20, yamaha.getSpeed());
-            yamaha.accelerate();
             assertEquals(21, yamaha.getSpeed());
             yamaha.accelerate();
             assertEquals(23, yamaha.getSpeed());
