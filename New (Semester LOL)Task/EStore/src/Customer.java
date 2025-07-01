@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Customer {
+public class Customer{
     private List<BillingInfo> billingInfoList;
     private ShoppingCart shoppingCart;
 

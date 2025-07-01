@@ -22,10 +22,10 @@ public class AirConditioner {
     }
 
     public void increaseTemp() {
-        if (temperature < 30) temperature += 1;
+        if(power) if (temperature < 30) temperature += 1;
     }
 
     public void decreaseTemp() {
-        if(temperature > 16)  temperature -= 1;
+       if(power) if(temperature > 16)  temperature -= 1;
     }
 }

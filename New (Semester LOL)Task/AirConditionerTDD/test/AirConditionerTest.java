@@ -94,4 +94,17 @@ public class AirConditionerTest {
     }
 
 
+    @Test
+    public void testThatTemperatureCannotBeIncreasedOrDecreasedWhenACIsTurnedOff(){
+        AirConditioner hisense = new AirConditioner();
+        assertFalse(hisense.getPowerStatus());
+        hisense.decreaseTemp();
+        assertEquals(0, hisense.getTemp());
+        hisense.increaseTemp();
+        assertEquals(0, hisense.getTemp());
+
+    }
+
+
+
 }
