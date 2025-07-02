@@ -9,8 +9,9 @@ public class AirConditioner {
     }
 
     public void turnOn() {
-        power = true;
-        temperature = 16;
+        power = !power;
+        if (power) {        temperature = 16;}
+
     }
 
     public void turnOff() {
