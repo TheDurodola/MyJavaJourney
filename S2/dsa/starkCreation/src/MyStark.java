@@ -1,5 +1,4 @@
 public class MyStark {
-    private boolean empty = true;
     private int count;
     private String[] word;
 
@@ -19,5 +18,10 @@ public class MyStark {
     public String pop() {
         if (count == 0) {throw new StackUnderFlowException();}
         return word[count--];
+    }
+
+    public String view() {
+        if (count == 0) {throw new StackUnderFlowException();}
+        return word[count];
     }
 }

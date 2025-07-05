@@ -74,6 +74,26 @@ public class StarkTest {
 
     }
 
+    @Test
+    public void testThatViewStark_returnsTheStringAtTheTopOfThisStack(){
+        stark.push("Bolaji");
+        stark.view();
+        assertEquals("Bolaji", stark.view());
+    }
 
+    @Test
+    public void PushTwo_ViewStark_Test(){
+        stark.push("Bolaji");
+        stark.view();
+        assertEquals("Bolaji", stark.view());
+        stark.push("Hello");
+        assertEquals("Hello", stark.view());
+    }
+
+    @Test
+    public void ViewEmptyStark_Test(){
+        assertTrue(stark.isEmpty());
+        assertThrows(StackUnderFlowException.class, ()-> stark.view());
+    }
 
 }
