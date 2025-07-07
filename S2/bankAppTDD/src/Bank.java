@@ -45,7 +45,7 @@ public class Bank {
         bankDatabase.get(receiver).deposit(amount);
     }
 
-    public int findReceiverAccount(String number){
+    private int findReceiverAccount(String number){
         for(Account account: bankDatabase){
             if(account.getAccountNumber().equals(number)){
                 return bankDatabase.indexOf(account);
