@@ -22,7 +22,9 @@ public class Movie {
         rating.add(inputtedRatings);
     }
 
-
+    public String getTitle() {
+        return title;
+    }
 
     public double getAverageRating() {
         double sum = addMovieRating();
