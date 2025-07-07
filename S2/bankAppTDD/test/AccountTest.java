@@ -9,7 +9,7 @@ public class AccountTest {
 
     @BeforeEach
     public void setUp() {
-        bolajiAccount = new Account("0990");
+        bolajiAccount = new Account("Abolaji", "Durodola", "1234567890","0990");
     }
     @Test
     public void testThatYouCanGetTheBalance() {
@@ -44,7 +44,7 @@ public class AccountTest {
         assertEquals(0,bolajiAccount.getBalance("0990"));
         bolajiAccount.deposit(10000);
         assertEquals(10000,bolajiAccount.getBalance("0990"));
-        bolajiAccount.withdraw(5000);
+        bolajiAccount.withdraw("0990",5000);
         assertEquals(5000,bolajiAccount.getBalance("0990"));
     }
 
@@ -53,9 +53,9 @@ public class AccountTest {
         assertEquals(0,bolajiAccount.getBalance("0990"));
         bolajiAccount.deposit(100000);
         assertEquals(100_000,bolajiAccount.getBalance("0990"));
-        bolajiAccount.withdraw(5000);
+        bolajiAccount.withdraw("0990",5000);
         assertEquals(95_000,bolajiAccount.getBalance("0990"));
-        bolajiAccount.withdraw(5000);
+        bolajiAccount.withdraw("0990",5000);
         assertEquals(90_000,bolajiAccount.getBalance("0990"));
     }
 
@@ -64,7 +64,7 @@ public class AccountTest {
         assertEquals(0,bolajiAccount.getBalance("0990"));
         bolajiAccount.deposit(10_000);
         assertEquals(10_000,bolajiAccount.getBalance("0990"));
-        assertThrows(InvalidAmountException.class, ()-> bolajiAccount.withdraw(-500));
+        assertThrows(InvalidAmountException.class, ()-> bolajiAccount.withdraw("0990",-500));
         assertEquals(10_000,bolajiAccount.getBalance("0990"));
     }
 
@@ -83,10 +83,29 @@ public class AccountTest {
 
     @Test
     public void testThatExceptionIsThrownWhenUserTriesToWithdrawMoreThanWhatIsInTheAccountBalance(){
-        assertThrows(InsufficientFundException.class, ()->bolajiAccount.withdraw(500));
+        assertThrows(InsufficientFundException.class, ()->bolajiAccount.withdraw("0990",500));
         assertEquals(0,bolajiAccount.getBalance("0990"));
     }
 
+    @Test
+    public void testThatAccountNameCanBeRetrieved(){
+        assertEquals("Durodola Abolaji", bolajiAccount.getName());
+    }
 
+    @Test
+    public void testThatAccountNumberCanBeRetrieved(){
+        assertEquals("1234567890", bolajiAccount.getAccountNumber());
+    }
+
+    @Test
+    public void testThatAccountNumberCantBeAnAlphabet(){
+        assertThrows(IllegalArgumentException.class,()->new Account("John", "Doe", "12345d0890", "1234"));
+    }
+
+    @Test
+    public void testThatNamesCannotContainNumber(){
+        assertThrows(InvalidNameInputException.class,()->new Account("Jo1n", "Doe", "1234567890", "1234"));
+        assertThrows(InvalidNameInputException.class,()->new Account("John", "Do1", "1234567890", "1234"));
+    }
 
 }
