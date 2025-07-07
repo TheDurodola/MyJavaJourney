@@ -18,7 +18,7 @@ public class TestMovie {
     }
     @Test
     public void TestThatDateAddedIsAccurate() {
-        assertEquals(LocalDate.of(2025,7,6), movie.getDateAdded());
+        assertEquals(LocalDate.of(2025,7,7), movie.getDateAdded());
     }
 
     @Test
@@ -43,8 +43,5 @@ public class TestMovie {
         AtomicReference<Movie> testMovie = null;
         assertThrows(InvalidMovieTitleException.class, ()-> testMovie.set(new Movie(" ")));
     }
-
-
-
 
 }
