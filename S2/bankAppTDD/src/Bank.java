@@ -31,6 +31,10 @@ public class Bank {
         return bankDatabase.get(currentAccount).getBalance(password);
     }
 
+    public String getName(){
+        return bankDatabase.get(currentAccount).getName();
+    }
+
     public void deposit(int amount){
         bankDatabase.get(currentAccount).deposit(amount);
     }

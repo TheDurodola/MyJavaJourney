@@ -50,8 +50,8 @@ public class Account {
     }
 
     private void validateAccountNumber(String accountNumber) {
-        if (accountNumber.length() != 10) throw new IllegalArgumentException("Password length exceeded");
-        if(isNotInteger(accountNumber)) throw new IllegalArgumentException("Password must Contain Number Only");
+        if (accountNumber.length() != 10) throw new IllegalAccountNumberException();
+        if(isNotLong(accountNumber)) throw new IllegalAccountNumberException();
     }
 
     private void validateAmount(int amount) {
@@ -76,6 +76,15 @@ public class Account {
     private boolean isNotInteger(String input) {
         try {
             Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isNotLong(String input) {
+        try {
+            Long.parseLong(input);
         } catch (NumberFormatException e) {
             return true;
         }
