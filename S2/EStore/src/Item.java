@@ -1,9 +1,9 @@
 public class Item {
-    private String quantity;
-    private Product productItems;
+    private int quantity;
+    private Product product;
 
-    public Item(String quantity, Product productItems) {
+    public Item(int quantity, Product product) {
         this.quantity = quantity;
-        this.productItems = productItems;
+        this.product = product;
     }
 }
