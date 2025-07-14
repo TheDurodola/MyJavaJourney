@@ -44,8 +44,8 @@ public class Bank {
     }
 
     public void transfer(String password, String number, int amount) {
-        withdrawn(password, amount);
         int receiver = findReceiverAccount(number);
+        withdrawn(password, amount);
         bankDatabase.get(receiver).deposit(amount);
     }
 
