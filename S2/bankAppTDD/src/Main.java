@@ -76,9 +76,9 @@ public class Main {
                         int navigation = input.nextInt();
                         switch (navigation) {
                             case 1:
-                                System.out.println("Please enter your pin");
-                                String balancePin = input.next();
                                 try {
+                                    System.out.println("Please enter your pin");
+                                    String balancePin = input.next();
                                     System.out.printf("Your current balance is N%.2f ",bank.getBalance(balancePin));
                                 }catch (IncorrectPinException e){
                                     System.out.println("Failed. Enter a valid PIN!");
@@ -100,11 +100,11 @@ public class Main {
                                 break;
                             }
                             case 3: {
-                                System.out.println("Please enter your amount to withdraw");
-                                int amount = input.nextInt();
-                                System.out.println("Please enter your pin");
-                                String password = input.next();
                                 try {
+                                    System.out.println("Please enter your amount to withdraw");
+                                    int amount = input.nextInt();
+                                    System.out.println("Please enter your pin");
+                                    String password = input.next();
                                     bank.withdrawn(password, amount);
                                     System.out.println("Withdrawn!");
                                 }catch (IncorrectPinException e) {
