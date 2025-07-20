@@ -19,37 +19,11 @@ public class Phonebook {
         contacts.add(new Contact(id, firstName, lastName, number));
     }
 
-    public String findViaFirstName(String firstName) {
-        for (Contact contact : contacts) {
-            if (contact.getFirstName().equals(firstName)) {
-                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
-            }
-        }
-     return null;
-    }
-
-    public String findViaLastName(String lastName) {
-        for (Contact contact : contacts) {
-            if (contact.getLastName().equals(lastName)) {
-                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
-            }
-        }
-        return null;
-    }
-
-    public String findViaPhoneNumber(String phoneNumber) {
-        for (Contact contact : contacts) {
-            if (contact.getPhoneNumber().equals(phoneNumber)) {
-                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
-            }
-        }
-        throw new  IllegalArgumentException("No such contact");
-    }
-
-
-
     public String findContact(String userInput) {
         for (Contact contact : contacts) {
+//            if ((char) contact.getId() == userInput.charAt(0)) {
+//                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
+//            }
             if (contact.getFirstName().equals(userInput)) {
                 return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
             }
@@ -60,11 +34,22 @@ public class Phonebook {
                 return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
             }
         }
-        throw new  IllegalArgumentException("No such contact");
+
+
+        throw new IllegalArgumentException("No such contact");
     }
 
+    public void editContact(int id, String firstName, String lastName, String phoneNumber) {
+        for (Contact contact : contacts) {
+            if (contact.getId()==(id)) {
+                contact.updateContact(firstName, lastName, phoneNumber);
+            }
+        }
+    }
 
+    public boolean deletedContact(String firstName, String lastName,  String phoneNumber) {
+        if(contacts.isEmpty()) throw new IllegalArgumentException("Phonebook is empty");
+        return contacts.removeIf(contact -> contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName) && contact.getPhoneNumber().equals(phoneNumber));
 
-
-
+    }
 }
