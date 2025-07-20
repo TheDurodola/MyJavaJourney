@@ -37,7 +37,7 @@ public class PhonebookTest {
                 ID: 1
                 First Name: Abolaji
                 Last Name: Durodola
-                Phone Number: 08148260470""", phonebook.findViaFirstName("Abolaji"));
+                Phone Number: 08148260470""", phonebook.findContact("Abolaji"));
     }
 
     @Test
@@ -48,17 +48,17 @@ public class PhonebookTest {
                 ID: 2
                 First Name: Tolu
                 Last Name: Dire
-                Phone Number: 08148260430""", phonebook.findViaFirstName("Tolu"));
+                Phone Number: 08148260430""", phonebook.findContact("Tolu"));
     }
 
     @Test
-    public void addContact_FindViaLastName(){
+    public void addContact_findContact(){
         phonebook.addContact("Abolaji", "Durodola", "08148260470");
         assertEquals("""
                 ID: 1
                 First Name: Abolaji
                 Last Name: Durodola
-                Phone Number: 08148260470""", phonebook.findViaLastName("Durodola"));
+                Phone Number: 08148260470""", phonebook.findContact("Durodola"));
     }
 
     @Test
@@ -69,10 +69,8 @@ public class PhonebookTest {
                 ID: 2
                 First Name: Tolu
                 Last Name: Dire
-                Phone Number: 08148260430""", phonebook.findViaLastName("Dire"));
+                Phone Number: 08148260430""", phonebook.findContact("Dire"));
     }
-
-
 
     @Test
     public void addContact_FindViaPhoneNumber(){
@@ -81,7 +79,7 @@ public class PhonebookTest {
                 ID: 1
                 First Name: Abolaji
                 Last Name: Durodola
-                Phone Number: 08148260470""", phonebook.findViaPhoneNumber("08148260470"));
+                Phone Number: 08148260470""", phonebook.findContact("08148260470"));
     }
 
     @Test
@@ -92,9 +90,8 @@ public class PhonebookTest {
                 ID: 2
                 First Name: Tolu
                 Last Name: Dire
-                Phone Number: 08148260430""", phonebook.findViaPhoneNumber("08148260430"));
+                Phone Number: 08148260430""", phonebook.findContact("08148260430"));
     }
-
 
     @Test void addContact_FindViaContact(){
         phonebook.addContact("Abolaji", "Durodola", "08148260470");
@@ -118,8 +115,52 @@ public class PhonebookTest {
                 Phone Number: 08148260470""", phonebook.findContact("Durodola"));
     }
 
+    @Test
+    public void addedContactCanBeEditedUsingTheContactID() {
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContact("Durodola"));
+
+        phonebook.editContact(1, "Toliat", "Rufus", "08026848847");
+        assertEquals("""
+                ID: 1
+                First Name: Toliat
+                Last Name: Rufus
+                Phone Number: 08026848847""", phonebook.findContact("Toliat"));
+
+    }
+
+    @Test
+    public void addedContactCanBeDeleted(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        phonebook.deletedContact("Abolaji", "Durodola", "08148260470");
+        assertEquals(0, phonebook.size());
+    }
+
+    @Test
+    public void contactCantBeDeletedIfPhonebookIsEmpty(){
+        assertThrows(IllegalArgumentException.class, ()-> phonebook.deletedContact("Abolaji", "Durodola","08148260470"));
+
+    }
+
+    @Test
+    public void ifContactDoesntExist_DeleteContactReturnsFalse(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        assertFalse(phonebook.deletedContact("Bolaji", "Durodola", "08148260470"));
+    }
 
 
-
+//    @Test
+//    public void contactCanBeRetrievedUsingTheContactID(){
+//        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+//        assertEquals("""
+//                ID: 1
+//                First Name: Abolaji
+//                Last Name: Durodola
+//                Phone Number: 08148260470""", phonebook.findContact("1"));
+//    }
 
 }
