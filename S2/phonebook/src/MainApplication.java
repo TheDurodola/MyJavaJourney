@@ -8,12 +8,13 @@ public class MainApplication {
         boolean loopCondition = true;
         while (loopCondition) {
             String mainMenu = """
+                    ==========================
                     \t\tPhonebook
                     1) Add Contact
                     2) Find Contact
                     3) Delete Contact
                     4) Edit Contact
-                    5) Exit
+                    0) Exit
                     
                     Enter Choice""";
             System.out.println(mainMenu);
@@ -40,17 +41,63 @@ public class MainApplication {
 
                 case 2:
                 {
-                    System.out.println("Enter contact first name, last name, or phone number:");
-                    String userInput = input.next();
-                    try {
-                        System.out.println(phonebook.findContact(userInput));
-                    }catch (Exception e){
-                        System.out.println(e.getMessage());
+                    if (phonebook.isEmpty()) {
+                        System.out.println("Phonebook is empty!");
+                        break;
+                    }
+
+
+                    String findMenu = """
+                    1) Find via first name
+                    2) Find via last name
+                    3) Find via phone number
+                    
+                    0) Back to main menu
+                    
+                    Enter choice: """;
+                    System.out.println(findMenu);
+                    int findChoice = input.nextInt();
+                    switch (findChoice) {
+                        case 1: {
+                            System.out.println("Enter contact first name:");
+                            String firstName = input.next();
+                            try {
+                                System.out.println(phonebook.findContactViaFirstName(firstName));
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            break;
+                        }
+                        case 2: {
+                            System.out.println("Enter contact last name:");
+                            String lastName = input.next();
+                            try {
+                                System.out.println(phonebook.findContactViaLastName(lastName));
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            break;
+                        }
+                        case 3: {
+                            System.out.println("Enter contact phone number:");
+                            String phoneNumber = input.next();
+                            try {
+                                System.out.println(phonebook.findContactViaNumber(phoneNumber));
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
+                            break;
+                        }
+
                     }
                     break;
                 }
 
                 case 3:
+                    if (phonebook.isEmpty()) {
+                        System.out.println("Phonebook is empty!");
+                        break;
+                    }
                     {
                     System.out.println("Enter contact first name:");
                     String firstName = input.next();
@@ -66,6 +113,10 @@ public class MainApplication {
                     break;
                     }
                 case 4:
+                    if (phonebook.isEmpty()) {
+                        System.out.println("Phonebook is empty!");
+                        break;
+                    }
                     {
                     System.out.println("Enter contact ID:");
                     int contactID = input.nextInt();
@@ -84,6 +135,7 @@ public class MainApplication {
                     }
 
                 case 0:
+                System.out.println("Exiting phonebook application...");
                     loopCondition = false;
 
                 default:
