@@ -19,11 +19,36 @@ public class Phonebook {
         contacts.add(new Contact(id, firstName, lastName, number));
     }
 
+    public String findContactViaFirstName(String firstName) {
+        for (Contact contact : contacts) {
+            if (contact.getFirstName().equals(firstName)) {
+                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
+            }
+        }
+        throw new IllegalArgumentException("No such contact");
+    }
+
+    public String findContactViaLastName(String lastName) {
+        for (Contact contact : contacts) {
+            if (contact.getLastName().equals(lastName)) {
+                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
+            }
+        }
+        throw new IllegalArgumentException("No such contact");
+    }
+
+    public String findContactViaNumber(String number) {
+        for (Contact contact : contacts) {
+            if (contact.getPhoneNumber().equals(number)) {
+                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
+            }
+        }
+        throw new IllegalArgumentException("No such contact");
+    }
+
     public String findContact(String userInput) {
         for (Contact contact : contacts) {
-//            if ((char) contact.getId() == userInput.charAt(0)) {
-//                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
-//            }
+//
             if (contact.getFirstName().equals(userInput)) {
                 return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
             }
