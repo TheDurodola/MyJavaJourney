@@ -44,10 +44,32 @@ public class ContactTest {
     }
 
     @Test
-    public void phoneNumberMustStartWithZeroAndStringLengthMustBeEleven(){
-        assertThrows(IllegalArgumentException.class, () -> new Contact(3, "Toliat", "Duro", "18146660470"));
-        assertThrows(IllegalArgumentException.class, () -> new Contact(3, "Toliat", "Duro", "018146660470"));
+    public void contactNameCantConsistOfOnlyWhitespace(){
+        assertThrows(IllegalArgumentException.class, () -> new Contact(1, " ", "Durodola", "08148260470"));
+        assertThrows(IllegalArgumentException.class, () -> new Contact(1, "Abolaji", " ", "08148260470"));    }
 
+//    @Test
+//    public void phoneNumberMustStartWithZeroAndStringLengthMustBeEleven(){
+//        assertThrows(IllegalArgumentException.class, () -> new Contact(3, "Toliat", "Duro", "18146660470"));
+//        assertThrows(IllegalArgumentException.class, () -> new Contact(3, "Toliat", "Duro", "018146660470"));
+//
+//    }
+
+    @Test
+    public void contactNameCantBeEmpty(){
+        assertThrows(IllegalArgumentException.class, () -> new Contact(1, "", "", "08148260470"));
+
+    }
+
+
+    @Test
+    public void ifPhoneNumberIsAnInternationalNumberMinimumLengthMustBe8OrIllegalPhoneNumberExceptionIsThrown(){
+        assertThrows(IllegalPhoneNumberException.class, ()-> new Contact(1, "Abolaji", "Toliat", "+682"));
+    }
+
+    @Test
+    public void ifPhoneNumberIsALocalNumberMinimumLengthMustBe3orIllegalPhoneNumberExceptionIsThrown(){
+        assertThrows(IllegalPhoneNumberException.class, ()-> new Contact(1, "Abolaji", "Durodola", "08"));
     }
 
 
