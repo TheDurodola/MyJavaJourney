@@ -43,21 +43,30 @@ public class Contact {
     private void validateName(String name){
         try{
             Integer.parseInt(name);
-            throw new IllegalArgumentException("Name cannot consist of numbers");
+            throw new IllegalNameException("Name can't consist of number");
         }
         catch (NumberFormatException _){
         }
+        if(name.isBlank()) throw new IllegalNameException("Name input can't be empty");
 
     }
 
     private void validateNo(String phoneNumber) {
 
-        if(!phoneNumber.startsWith("0") || phoneNumber.startsWith("2")){
-            throw new IllegalArgumentException("Phone number must start with 0");
+        if (phoneNumber.startsWith("+")) {
+            phoneNumber = phoneNumber.substring(1);
+
+            if(phoneNumber.length() < 8) {
+                throw new IllegalPhoneNumberException("Phone number must be at least 8 digits");
+            }
         }
-        if(phoneNumber.length() != 11){
-            throw new IllegalArgumentException("Number size must either be 11");
+
+        if (!phoneNumber.startsWith("+")){
+            if(phoneNumber.length() < 3) {
+                throw  new IllegalPhoneNumberException("Phone number must be at least 4 digits");
+            }
         }
+
         try {
             Long.parseLong(phoneNumber);
         } catch (NumberFormatException e) {
