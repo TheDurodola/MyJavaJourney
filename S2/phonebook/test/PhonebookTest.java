@@ -163,4 +163,76 @@ public class PhonebookTest {
 //                Phone Number: 08148260470""", phonebook.findContact("1"));
 //    }
 
+
+    @Test
+    public void contactInfoCantBeRetrievedUsingContactFirstName(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaFirstName("Abolaji"));
+
+
+        phonebook.addContact("Adeoluwa", "Ireoluwa", "08148260444");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaFirstName("Abolaji"));
+
+        assertEquals("""
+                ID: 2
+                First Name: Adeoluwa
+                Last Name: Ireoluwa
+                Phone Number: 08148260444""", phonebook.findContactViaFirstName("Adeoluwa"));
+    }
+
+    @Test
+    public void contactInfoCantBeRetrievedUsingContactLastName(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaLastName("Durodola"));
+
+
+        phonebook.addContact("Adeoluwa", "Ireoluwa", "08148260444");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaLastName("Durodola"));
+
+        assertEquals("""
+                ID: 2
+                First Name: Adeoluwa
+                Last Name: Ireoluwa
+                Phone Number: 08148260444""", phonebook.findContactViaLastName("Ireoluwa"));
+    }
+
+    @Test
+    public void contactInfoCantBeRetrievedUsingContactPhoneNumber(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaNumber("08148260470"));
+
+
+        phonebook.addContact("Adeoluwa", "Ireoluwa", "08148260444");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaNumber("08148260470"));
+
+        assertEquals("""
+                ID: 2
+                First Name: Adeoluwa
+                Last Name: Ireoluwa
+                Phone Number: 08148260444""", phonebook.findContactViaNumber("08148260444"));
+    }
 }
