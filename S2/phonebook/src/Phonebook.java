@@ -20,8 +20,14 @@ public class Phonebook {
     }
 
     public String findContactViaFirstName(String firstName) {
+        isPhonebookEmpty();
         for (Contact contact : contacts) {
             if (contact.getFirstName().equals(firstName)) {
+                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
+            }
+        }
+        for (Contact contact : contacts) {
+            if (contact.getFirstName().equalsIgnoreCase(firstName)) {
                 return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
             }
         }
@@ -29,8 +35,14 @@ public class Phonebook {
     }
 
     public String findContactViaLastName(String lastName) {
+        isPhonebookEmpty();
         for (Contact contact : contacts) {
             if (contact.getLastName().equals(lastName)) {
+                return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
+            }
+        }
+        for (Contact contact : contacts) {
+            if (contact.getLastName().equalsIgnoreCase(lastName)) {
                 return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
             }
         }
@@ -38,8 +50,9 @@ public class Phonebook {
     }
 
     public String findContactViaNumber(String number) {
+        isPhonebookEmpty();
         for (Contact contact : contacts) {
-            if (contact.getPhoneNumber().equals(number)) {
+            if (contact.getPhoneNumber().equalsIgnoreCase(number)) {
                 return "ID: " + contact.getId() + "\nFirst Name: " + contact.getFirstName() + "\nLast Name: " + contact.getLastName() + "\nPhone Number: " + contact.getPhoneNumber();
             }
         }
@@ -47,6 +60,8 @@ public class Phonebook {
     }
 
     public String findContact(String userInput) {
+        isPhonebookEmpty();
+
         for (Contact contact : contacts) {
 //
             if (contact.getFirstName().equals(userInput)) {
@@ -65,6 +80,7 @@ public class Phonebook {
     }
 
     public void editContact(int id, String firstName, String lastName, String phoneNumber) {
+        isPhonebookEmpty();
         for (Contact contact : contacts) {
             if (contact.getId()==(id)) {
                 contact.updateContact(firstName, lastName, phoneNumber);
@@ -73,8 +89,14 @@ public class Phonebook {
     }
 
     public boolean deletedContact(String firstName, String lastName,  String phoneNumber) {
-        if(contacts.isEmpty()) throw new IllegalArgumentException("Phonebook is empty");
+        isPhonebookEmpty();
         return contacts.removeIf(contact -> contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName) && contact.getPhoneNumber().equals(phoneNumber));
 
+    }
+
+    public void isPhonebookEmpty() {
+        if(isEmpty()){
+            throw new NoContactsException("No contacts added yet");
+        }
     }
 }
