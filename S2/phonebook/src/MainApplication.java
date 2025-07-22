@@ -41,12 +41,12 @@ public class MainApplication {
 
                 case 2:
                 {
-                    if (phonebook.isEmpty()) {
-                        System.out.println("Phonebook is empty!");
+                    try {
+                        phonebook.isPhonebookEmpty();
+                    }catch (NoContactsException e){
+                        System.out.println(e.getMessage());
                         break;
                     }
-
-
                     String findMenu = """
                     1) Find via first name
                     2) Find via last name
@@ -94,11 +94,14 @@ public class MainApplication {
                 }
 
                 case 3:
-                    if (phonebook.isEmpty()) {
-                        System.out.println("Phonebook is empty!");
-                        break;
-                    }
+
                     {
+                        try {
+                            phonebook.isPhonebookEmpty();
+                        }catch (NoContactsException e){
+                            System.out.println(e.getMessage());
+                            break;
+                        }
                     System.out.println("Enter contact first name:");
                     String firstName = input.next();
                     System.out.println("Enter contact last name:");
@@ -113,11 +116,13 @@ public class MainApplication {
                     break;
                     }
                 case 4:
-                    if (phonebook.isEmpty()) {
-                        System.out.println("Phonebook is empty!");
-                        break;
-                    }
                     {
+                        try {
+                            phonebook.isPhonebookEmpty();
+                        }catch (NoContactsException e){
+                            System.out.println(e.getMessage());
+                            break;
+                        }
                     System.out.println("Enter contact ID:");
                     int contactID = input.nextInt();
                     System.out.println("Enter new first name:");
