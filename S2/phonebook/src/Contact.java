@@ -5,9 +5,7 @@ public class Contact {
     private String phoneNumber;
 
     public Contact(int id, String firstName, String lastName, String phoneNumber) {
-        validateName(firstName);
-        validateName(lastName);
-        validateNo(phoneNumber);
+        validateInput(firstName, lastName, phoneNumber);
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -16,9 +14,7 @@ public class Contact {
 
 
     public void updateContact(String firstName, String lastName, String phoneNumber) {
-        validateName(firstName);
-        validateName(lastName);
-        validateNo(phoneNumber);
+        validateInput(firstName, lastName, phoneNumber);
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -38,6 +34,12 @@ public class Contact {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    private void validateInput(String firstName, String lastName, String phoneNumber) {
+        validateName(firstName);
+        validateName(lastName);
+        validateNo(phoneNumber);
     }
 
     private void validateName(String name){
@@ -63,7 +65,7 @@ public class Contact {
 
         if (!phoneNumber.startsWith("+")){
             if(phoneNumber.length() < 3) {
-                throw  new IllegalPhoneNumberException("Phone number must be at least 4 digits");
+                throw  new IllegalPhoneNumberException("Phone number must be at least 3 digits");
             }
         }
 
