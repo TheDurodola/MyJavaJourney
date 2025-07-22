@@ -142,8 +142,23 @@ public class PhonebookTest {
 
     @Test
     public void contactCantBeDeletedIfPhonebookIsEmpty(){
-        assertThrows(IllegalArgumentException.class, ()-> phonebook.deletedContact("Abolaji", "Durodola","08148260470"));
+        assertThrows(NoContactsException.class, ()-> phonebook.deletedContact("Abolaji", "Durodola","08148260470"));
 
+    }
+
+    @Test
+    public void findContactByPhoneNumberThrowsNoContactsExceptionIfPhoneDoesNotHaveAnyContact(){
+        assertThrows(NoContactsException.class, ()-> phonebook.findContactViaNumber("08148260470"));
+    }
+
+    @Test
+    public void findContactByFirstNameThrowsNoContactsExceptionIfPhoneDoesNotHaveAnyContact(){
+        assertThrows(NoContactsException.class, ()-> phonebook.findContactViaFirstName("Durodola"));
+    }
+
+    @Test
+    public void findContactByLastNameThrowsNoContactsExceptionIfPhoneDoesNotHaveAnyContact(){
+        assertThrows(NoContactsException.class, ()-> phonebook.findContactViaLastName("Abolaji"));
     }
 
     @Test
@@ -234,5 +249,55 @@ public class PhonebookTest {
                 First Name: Adeoluwa
                 Last Name: Ireoluwa
                 Phone Number: 08148260444""", phonebook.findContactViaNumber("08148260444"));
+    }
+
+    @Test
+    public void findContactViaLastNameIsPrioritizeCaseSensitive(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        phonebook.addContact("boluwatife", "durodola", "08148260471");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaLastName("Durodola"));
+
+        assertEquals("""
+                ID: 2
+                First Name: boluwatife
+                Last Name: durodola
+                Phone Number: 08148260471""", phonebook.findContactViaLastName("durodola"));
+
+        phonebook.deletedContact("boluwatife", "durodola", "08148260471");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaLastName("durodola"));
+
+    }
+
+    @Test
+    public void findContactViaFirstNameIsPrioritizeCaseSensitive(){
+        phonebook.addContact("Abolaji", "Durodola", "08148260470");
+        phonebook.addContact("abolaji", "durodola", "08148260471");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaFirstName("Abolaji"));
+
+        assertEquals("""
+                ID: 2
+                First Name: abolaji
+                Last Name: durodola
+                Phone Number: 08148260471""", phonebook.findContactViaFirstName("abolaji"));
+
+        phonebook.deletedContact("abolaji", "durodola", "08148260471");
+        assertEquals("""
+                ID: 1
+                First Name: Abolaji
+                Last Name: Durodola
+                Phone Number: 08148260470""", phonebook.findContactViaFirstName("abolaji"));
+
     }
 }
