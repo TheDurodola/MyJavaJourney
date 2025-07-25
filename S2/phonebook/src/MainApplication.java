@@ -31,10 +31,10 @@ public class MainApplication {
                     String phoneNumber = input.next();
                     try {
                         phonebook.addContact(firstName, lastName, phoneNumber);
-                    }catch (Exception e){
+                        System.out.println("Contact added successfully!");
+                    } catch (IllegalPhoneNumberException | IllegalNameException e) {
                         System.out.println(e.getMessage());
                     }
-
                     break;
                 }
 
@@ -51,10 +51,10 @@ public class MainApplication {
                     1) Find via first name
                     2) Find via last name
                     3) Find via phone number
-                    
+                   \s
                     0) Back to main menu
-                    
-                    Enter choice: """;
+                   \s
+                    Enter choice:\s""";
                     System.out.println(findMenu);
                     int findChoice = input.nextInt();
                     switch (findChoice) {
