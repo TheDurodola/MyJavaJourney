@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class EntryV2 {
     private int id;
@@ -33,8 +34,12 @@ public class EntryV2 {
         return description;
     }
 
-    public LocalDateTime getDateCreated() {
-        return dateCreated;
+
+
+    @Override
+    public String toString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return "ID: " + id + "\nDate: "+ dateCreated.format(dtf) +"\nTitle: " + title + "\nDescription: " + description;
     }
 
 }
