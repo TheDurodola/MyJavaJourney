@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Phonebook {
-    private List<Contact> contacts = new ArrayList<Contact>();
+    private List<Contact> contacts = new ArrayList<>();
     private int id;
 
 
