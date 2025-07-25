@@ -49,7 +49,6 @@ public class DiaryV2 {
         throw new InvalidIDException();
     }
 
-
     public EntryV2 findEntryById(int id) {
         for(EntryV2 e: entries) {
             if(e.getId() == id) {
@@ -65,6 +64,16 @@ public class DiaryV2 {
                 e.setTitle(title);
                 e.setDescription(desc);
                 return;
+            }
+        }
+        throw new InvalidIDException();
+    }
+
+
+    public String printEntry(int id) {
+        for(EntryV2 e: entries) {
+            if(e.getId() == id) {
+                return e.toString();
             }
         }
         throw new InvalidIDException();
