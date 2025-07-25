@@ -16,7 +16,8 @@ public class Phonebook {
 
     public void addContact(String firstName, String lastName, String number) {
         ++id;
-        contacts.add(new Contact(id, firstName, lastName, number));
+            contacts.add(new Contact(id, firstName, lastName, number));
+
     }
 
     public String findContactViaFirstName(String firstName) {
