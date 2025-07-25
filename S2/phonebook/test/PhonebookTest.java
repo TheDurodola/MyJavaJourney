@@ -30,6 +30,10 @@ public class PhonebookTest {
         assertEquals(2, phonebook.size());
     }
 
+    @Test void addContactThrowsExceptionWhenPhoneNumberIsInvalid(){
+        assertThrows(IllegalPhoneNumberException.class , () -> phonebook.addContact("Abolaji", "Durodola", "08"));
+    }
+
     @Test
     public void addContact_FindViaFirstName(){
         phonebook.addContact("Abolaji", "Durodola", "08148260470");
